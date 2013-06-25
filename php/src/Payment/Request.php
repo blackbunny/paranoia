@@ -44,9 +44,14 @@ class Request
     private $_expireMonth;
 
     /**
+     * @var string
+     */
+    private $_transactionId;
+
+    /**
     * @var string
     */
-    private $_transactionId;
+    private $_authCode;
 
     /**
     * @var string
@@ -61,7 +66,7 @@ class Request
     {
         return $this->_orderId;
     }
-    
+
     /**
     * sets order identity to request object.
     * @param $orderId
@@ -72,7 +77,7 @@ class Request
         $this->_orderId = $orderId;
         return $this;
     }
-    
+
     /**
     * returns order amount.
     * @return float
@@ -112,7 +117,7 @@ class Request
         $this->_currency = $currency;
         return $this;
     }
-        
+
     /**
     * returns installment amount.
     * @return integer
@@ -132,7 +137,7 @@ class Request
         $this->_installment = $installment;
         return $this;
     }
-    
+
     /**
     * returns card number.
     * @return numeric
@@ -152,7 +157,7 @@ class Request
         $this->_cardNumber = $cardNumber;
         return $this;
     }
-    
+
     /**
     * returns card security code.
     * @return string
@@ -161,7 +166,7 @@ class Request
     {
         return $this->_securityCode;
     }
-    
+
     /**
     * sets card security code to request object.
     * @param string $securityCode
@@ -172,7 +177,7 @@ class Request
         $this->_securityCode = $securityCode;
         return $this;
     }
-    
+
     /**
     * returns expire month of card.
     * @return integer
@@ -181,7 +186,7 @@ class Request
     {
         return $this->_expireMonth;
     }
-    
+
     /**
     * sets card expire month to request object.
     * @param integer $expireMonth
@@ -232,7 +237,27 @@ class Request
         $this->_transactionId = $transactionId;
         return $this;
     }
-    
+
+    /**
+     * returns authentication code.
+     * @return string
+     */
+    public function getAuthCode()
+    {
+        return $this->_authCode;
+    }
+
+    /**
+     * sets authentication code to request object.
+     * @return string
+     * @return self
+     */
+    public function setAuthCode($authCode)
+    {
+        $this->_authCode = $authCode;
+        return $this;
+    }
+
     /**
     * returns request as raw data.
     * @return string
@@ -241,7 +266,7 @@ class Request
     {
         return $this->_rawData;
     }
-    
+
     /**
     * sets response data as raw.
     * @param string $rawData

@@ -24,10 +24,15 @@ abstract class ResponseAbstract
     protected $_transactionId;
 
     /**
+     * @var string
+     */
+    protected $_authCode;
+
+    /**
     * @var integer
     */
     protected $_responseCode;
-    
+
     /**
     * @var string
     */
@@ -37,7 +42,7 @@ abstract class ResponseAbstract
     * @var string
     */
     protected $_rawData;
-    
+
     /**
     * @see \Payment\Response\ResponseInterface::isSuccess()
     */
@@ -45,7 +50,7 @@ abstract class ResponseAbstract
     {
         return $this->_isSuccess;
     }
-    
+
     /**
     * @see \Payment\Response\ResponseInterface::setIsSuccess()
     */
@@ -62,7 +67,7 @@ abstract class ResponseAbstract
     {
         return $this->_transactionType;
     }
-    
+
     /**
     * @see \Payment\Response\ResponseInterface::setTransactionType()
     */
@@ -71,7 +76,7 @@ abstract class ResponseAbstract
         $this->_transactionType = $transactionType;
         return $this;
     }
-    
+
     /**
     * @see \Payment\Response\ResponseInterface::getOrderId()
     */
@@ -79,7 +84,7 @@ abstract class ResponseAbstract
     {
         return $this->_orderId;
     }
-    
+
     /**
     * @see \Payment\Response\ResponseInterface::setOrderId()
     */
@@ -88,7 +93,7 @@ abstract class ResponseAbstract
         $this->_orderId = $orderId;
         return $this;
     }
-    
+
     /**
     * @see \Payment\Response\ResponseInterface::getTransactionId()
     */
@@ -96,7 +101,7 @@ abstract class ResponseAbstract
     {
         return $this->_transactionId;
     }
-    
+
     /**
     * @see \Payment\Response\ResponseInterface::setTransactionId()
     */
@@ -107,13 +112,30 @@ abstract class ResponseAbstract
     }
 
     /**
+     * @see \Payment\Response\ResponseInterface::getTransactionId()
+     */
+    public function getAuthCode()
+    {
+        return $this->_authCode;
+    }
+
+    /**
+     * @see \Payment\Response\ResponseInterface::setTransactionId()
+     */
+    public function setAuthCode($authCode)
+    {
+        $this->_authCode = $authCode;
+        return $this;
+    }
+
+    /**
     * @see \Payment\Response\ResponseInterface::getResponseCode()
     */
     public function getResponseCode()
     {
         return $this->_responseCode;
     }
-    
+
     /**
     * @see \Payment\Response\ResponseInterface::setResponseCode()
     */
@@ -122,7 +144,7 @@ abstract class ResponseAbstract
         $this->_responseCode =  $responseCode;
         return $this;
     }
-    
+
     /**
     * @see \Payment\Response\ResponseInterface::getResponseCode()
     */
@@ -130,7 +152,7 @@ abstract class ResponseAbstract
     {
         return $this->_responseMessage;
     }
-    
+
     /**
     * @see \Payment\Response\ResponseInterface::setResponseMessage()
     */
@@ -148,7 +170,7 @@ abstract class ResponseAbstract
     {
         return $this->_rawData;
     }
-    
+
     /**
     * sets response data as raw.
     * @param string $rawData
