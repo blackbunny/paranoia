@@ -1,16 +1,19 @@
 <?php
+
 namespace Communication\Adapter;
 
 interface AdapterInterface
 {
+
     /**
      * send a request with given data.
      *
-     * @param string $url
-     * @param mixed $data
-     * @param array $options (optional)
+     * @param string $url            
+     * @param mixed $data            
+     * @param array $options
+     *            (optional)
      */
-    public function sendRequest($url, $data, $options=null);
+    public function sendRequest($url, $data, $options = null);
 
     /**
      * returns last sent request.
@@ -25,4 +28,5 @@ interface AdapterInterface
      * @return string
      */
     public function getLastReceivedResponse();
+
 }

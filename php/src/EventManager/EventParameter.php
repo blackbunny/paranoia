@@ -1,4 +1,5 @@
 <?php
+
 namespace EventManager;
 
 use \EventManager\EventManagerAbstract;
@@ -6,26 +7,31 @@ use \EventManager\EventManagerAbstract;
 class EventParameter
 {
     /**
+     *
      * @var \EventManager\EventManagerAbstract
      */
     private $_source;
-
+    
     /**
+     *
      * @var string
      */
     private $_eventName;
-
+    
     /**
+     *
      * @var array
      */
     private $_data;
-
+    
     /**
+     *
      * @var double
      */
     private $_time;
 
-    public function __construct(EventManagerAbstract $source, $eventName, $data = array())
+    public function __construct(EventManagerAbstract $source, $eventName, 
+            $data = array())
     {
         $this->_source = $source;
         $this->_eventName = $eventName;
@@ -45,7 +51,7 @@ class EventParameter
     /**
      * sets event source
      *
-     * @param \EventManager\EventManagerAbstract $source
+     * @param \EventManager\EventManagerAbstract $source            
      * @return \EventManager\EventParameter
      */
     public function setSource(EventManagerAbstract $source)
@@ -67,7 +73,7 @@ class EventParameter
     /**
      * sets event name
      *
-     * @param string $eventName
+     * @param string $eventName            
      * @return \EventManager\EventParameter
      */
     public function setEventName($eventName)
@@ -81,20 +87,19 @@ class EventParameter
      *
      * @return array
      */
-    public function getData($key=null)
+    public function getData($key = null)
     {
-        if($key==null) {
+        if ($key == null) {
             return $this->_data;
         } else {
-            return (array_key_exists($key, $this->_data)) ? 
-                $this->_data[$key] : false;
+            return (array_key_exists($key, $this->_data)) ? $this->_data [$key] : false;
         }
     }
 
     /**
      * sets data.
      *
-     * @param array $data
+     * @param array $data            
      * @return \EventManager\EventParameter
      */
     public function setData($data)
@@ -102,7 +107,7 @@ class EventParameter
         $this->_data = $data;
         return $this;
     }
-    
+
     /**
      * returns event time.
      *
@@ -112,11 +117,11 @@ class EventParameter
     {
         return $this->_time;
     }
-    
+
     /**
      * sets event time.
      *
-     * @param dobule $time
+     * @param dobule $time            
      * @return \EventManager\EventParameter
      */
     public function setTime($time)
@@ -124,4 +129,5 @@ class EventParameter
         $this->_time = $time;
         return $this;
     }
+
 }

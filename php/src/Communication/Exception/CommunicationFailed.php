@@ -1,4 +1,5 @@
 <?php
+
 namespace Communication\Exception;
 
 use \ErrorException;
