@@ -10,7 +10,22 @@ use \Payment\Exception\UnexpectedResponse;
 
 class Posnet extends Http implements AdapterInterface
 {
+    /**
+     *
+     * @var array
+     */
+    protected $_transactionMap = array(
+                                    self::TRANSACTION_TYPE_PREAUTHORIZATION => 'auth',
+                                    self::TRANSACTION_TYPE_POSTAUTHORIZATION => 'capt',
+                                    self::TRANSACTION_TYPE_SALE => 'sale',
+                                    self::TRANSACTION_TYPE_CANCEL => 'reverse',
+                                    self::TRANSACTION_TYPE_REFUND => 'return');
 
+    /**
+     * builds request base with common arguments.
+     *
+     * @return array
+     */
     private function _buildBaseRequest()
     {
         $config = $this->_config;
